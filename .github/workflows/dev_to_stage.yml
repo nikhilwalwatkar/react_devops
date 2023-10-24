@@ -1,9 +1,9 @@
-name: Auto-Merge Dev to Test
+name: Auto-Merge Dev to Testing
 
 on:
   push:
     branches:
-      - test
+      - dev
 
 jobs:
   auto-merge:
@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Merge code to test branch
+      - name: Merge code to main branch
         run: |
-          git checkout dev
-          git merge test
-          git push origin dev
+          git checkout main
+          git merge dev 
+          git push origin main

@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Merge code to testing branch
+      - name: Merge code to test branch
         run: |
           git checkout test
           git merge dev --no-edit

@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          hello world in pheniox
+          hello world
         </a>
       </header>
     </div>

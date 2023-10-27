@@ -6,3 +6,4 @@ test("checking the render",()=>{
     let torender=screen.getByText("Hello")
     expect(torender).toBeInTheDocument()
 })
+

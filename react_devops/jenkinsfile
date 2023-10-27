@@ -12,5 +12,10 @@ pipline {
                 sh 'npm run test'
             }
         }
+        stage("build the docker Image"){
+            steps {
+                dockerImage=docker.build 
+            }
+        }
     }
 }

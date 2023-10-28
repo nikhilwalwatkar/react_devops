@@ -1,0 +1,21 @@
+pipline {
+    agent any
+    tool { nodejs "node"}
+    stages {
+        stage("install dependency"){
+            steps {
+                sh "npm install"
+            }
+        }
+        stage("Running tests"){
+            steps {
+                sh 'npm run test'
+            }
+        }
+        stage("build the docker Image"){
+            steps {
+                dockerImage=docker.build 
+            }
+        }
+    }
+}

@@ -6,8 +6,10 @@ pipeline {
     stages {
         stage("Install dependency") {
              steps {
+                 echo "npm install"
         dir('C:\Users\TLM\Desktop\react_devops\react_devops\react_devopst') {
             sh 'npm run test'
+            echo "npm instal end"
         }
     }
         }

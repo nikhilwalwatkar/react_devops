@@ -1,27 +1,23 @@
 pipeline {
-    agent any
-    tools {
-        nodejs "node" // "tools" should be used instead of "tool"
-    }
-    stages {
-        stage("Install dependency") {
-             steps {
-                 echo "npm install"
-        dir('C:\Users\TLM\Desktop\react_devops\react_devops\react_devopst') {
-            sh 'npm run test'
-            echo "npm instal end"
-        }
-    }
-        }
-        stage("Running tests") {
-            steps {
-                sh 'npm run test'
-            }
-        }
-                stage("Running tests") {
-            steps {
-                sh 'npm build'
-            }
-        }
-    }
+   agent any
+   tools {
+       nodejs 'node' // Use the tool name you configured in Jenkins
+   }
+   stages {
+       stage("Install dependency") {
+           steps {
+               sh 'npm install'
+           }
+       }
+       stage("Running tests") {
+           steps {
+               sh 'npm run test'
+           }
+       }
+       stage("Build the Docker Image") {
+           steps {
+               // Your Docker build steps
+           }
+       }
+   }
 }

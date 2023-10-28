@@ -1,20 +1,25 @@
-pipline {
+pipeline {
     agent any
-    tool { nodejs "node"}
+    tools {
+        nodejs "node" // "tools" should be used instead of "tool"
+    }
     stages {
-        stage("install dependency"){
+        stage("Install dependency") {
             steps {
                 sh "npm install"
             }
         }
-        stage("Running tests"){
+        stage("Running tests") {
             steps {
                 sh 'npm run test'
             }
         }
-        stage("build the docker Image"){
+        stage("Build the Docker Image") {
             steps {
-                dockerImage=docker.build 
+                script {
+                    // You need to specify the Docker image name and tag, e.g., "my-image:latest"
+                    def dockerImage = docker.build("my-image:latest")
+                }
             }
         }
     }

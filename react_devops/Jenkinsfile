@@ -14,12 +14,9 @@ pipeline {
                 sh 'npm run test'
             }
         }
-        stage("Build the Docker Image") {
+                stage("Running tests") {
             steps {
-                script {
-                    // You need to specify the Docker image name and tag, e.g., "my-image:latest"
-                    def dockerImage = docker.build("my-image:latest")
-                }
+                sh 'npm build'
             }
         }
     }

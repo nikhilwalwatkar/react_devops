@@ -5,9 +5,11 @@ pipeline {
     }
     stages {
         stage("Install dependency") {
-            steps {
-                sh "npm install"
-            }
+             steps {
+        dir('C:\Users\TLM\Desktop\react_devops\react_devops\react_devopst') {
+            sh 'npm run test'
+        }
+    }
         }
         stage("Running tests") {
             steps {

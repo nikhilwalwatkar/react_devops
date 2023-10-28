@@ -1,23 +1,36 @@
 pipeline {
-   agent any
-   tools {
-       nodejs 'node' // Use the tool name you configured in Jenkins
-   }
-   stages {
-       stage("Install dependency") {
-           steps {
-               sh 'npm install'
-           }
-       }
-       stage("Running tests") {
-           steps {
-               sh 'npm run test'
-           }
-       }
-       stage("Build the Docker Image") {
-           steps {
-               // Your Docker build steps
-           }
-       }
-   }
+    agent any
+    tools {
+        nodejs 'node' // Use the tool name you configured in Jenkins
+    }
+    stages {
+        stage('Install Dependency') {
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh 'npm install'
+                    } else {
+                        bat 'npm.cmd install'
+                    }
+                }
+            }
+        }
+        stage('Running Tests') {
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh 'npm run test'
+                    } else {
+                        bat 'npm.cmd run test'
+                    }
+                }
+            }
+        }
+        stage('Build the Docker Image') {
+            steps {
+                // Your Docker build steps here
+            }
+        }
+    }
 }
+

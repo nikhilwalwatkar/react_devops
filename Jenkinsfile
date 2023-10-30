@@ -6,13 +6,7 @@ pipeline {
     stages {
         stage('Install Dependency') {
             steps {
-                script {
-                    if (isUnix()) {
-                        sh 'npm install'
-                    } else {
-                        bat 'npm.cmd install'
-                    }
-                }
+             echo "hello world"
             }
         }
 

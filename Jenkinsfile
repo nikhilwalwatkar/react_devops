@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Install Dependency') {
             steps {
-             echo "hello world"
+             echo "npm install"
             }
         }
 

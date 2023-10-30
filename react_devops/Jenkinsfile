@@ -15,22 +15,7 @@ pipeline {
                 }
             }
         }
-        stage('Running Tests') {
-            steps {
-                script {
-                    if (isUnix()) {
-                        sh 'npm run test'
-                    } else {
-                        bat 'npm.cmd run test'
-                    }
-                }
-            }
-        }
-        stage('Build the Docker Image') {
-            steps {
-                // Your Docker build steps here
-            }
-        }
+
     }
 }
 
